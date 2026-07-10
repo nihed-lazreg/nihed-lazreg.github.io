@@ -3,60 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nihed Lazreg — Télécommunications & IA</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Nihed Lazreg — Ingénieure Télécom & IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1a0f0a;
-  --bg2: #221409;
-  --surface: #2b1a10;
-  --surface2: #341f14;
-  --border: rgba(212,162,100,0.15);
-  --gold: #d4a264;
-  --gold2: #e8c08a;
-  --rose: #c97a8a;
-  --rose2: #e8a0b0;
-  --cream: #f5ede0;
-  --sand: #c4a882;
-  --text: #f5ede0;
-  --muted: #a08868;
-  --terracotta: #b5614a;
+  --bg: #090c0d;
+  --bg2: #0d1113;
+  --surface: #10161a;
+  --surface2: #151d21;
+  --border: rgba(94,234,212,0.14);
+  --green: #5eead4;
+  --green2: #8ff8e6;
+  --blue: #5b8cff;
+  --blue2: #8fabff;
+  --cream: #eaf1f0;
+  --sand: #a9bcbb;
+  --text: #eaf1f0;
+  --muted: #6c8281;
+  --amber: #e0b34a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ── Decorative SVG background ── */
+/* ── Background grid + glow ── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 10% 5%, rgba(212,162,100,0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 60% at 90% 90%, rgba(201,122,138,0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(181,97,74,0.05) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 40% at 12% 0%, rgba(94,234,212,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 92% 95%, rgba(91,140,255,0.07) 0%, transparent 55%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── Arabesque motif overlay ── */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(212,162,100,0.04)' stroke-width='0.5'%3E%3Cpath d='M60 10 L80 30 L60 50 L40 30 Z'/%3E%3Cpath d='M60 70 L80 90 L60 110 L40 90 Z'/%3E%3Cpath d='M10 60 L30 40 L50 60 L30 80 Z'/%3E%3Cpath d='M70 60 L90 40 L110 60 L90 80 Z'/%3E%3Ccircle cx='60' cy='60' r='20' stroke-dasharray='3,5'/%3E%3Ccircle cx='60' cy='60' r='35' stroke-dasharray='1,8'/%3E%3Cpath d='M60 25 Q75 45 60 60 Q45 45 60 25'/%3E%3Cpath d='M60 95 Q75 75 60 60 Q45 75 60 95'/%3E%3Cpath d='M25 60 Q45 75 60 60 Q45 45 25 60'/%3E%3Cpath d='M95 60 Q75 75 60 60 Q75 45 95 60'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 120px 120px;
-  opacity: 1;
+  background-image:
+    linear-gradient(rgba(94,234,212,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -69,84 +68,48 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 4rem;
-  background: rgba(26,15,10,0.9);
-  backdrop-filter: blur(24px);
+  padding: 1.1rem 4rem;
+  background: rgba(9,12,13,0.85);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
-  color: var(--gold);
-  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--green);
 }
 
-.nav-logo::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, var(--gold), transparent);
-}
+.nav-logo span { color: var(--muted); }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.3rem;
   list-style: none;
 }
 
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: color 0.3s;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  transition: color 0.25s;
   position: relative;
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 0.3s;
+.nav-links a::before {
+  content: '// ';
+  color: var(--green);
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.nav-links a:hover { color: var(--gold2); }
-.nav-links a:hover::after { width: 100%; }
-
-/* ── Ornamental divider ── */
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  color: var(--gold);
-  opacity: 0.5;
-}
-
-.ornament-line {
-  flex: 1;
-  max-width: 80px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold));
-}
-
-.ornament-line.rev {
-  background: linear-gradient(to left, transparent, var(--gold));
-}
-
-.ornament-symbol {
-  font-size: 1rem;
-  letter-spacing: 0.3em;
-}
+.nav-links a:hover { color: var(--cream); }
+.nav-links a:hover::before { opacity: 0.7; }
 
 /* ── HERO ── */
 .hero {
@@ -154,7 +117,7 @@ nav {
   z-index: 1;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
   padding: 8rem 4rem 4rem;
   max-width: 1200px;
@@ -168,69 +131,67 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--rose2);
-  border: 1px solid rgba(201,122,138,0.3);
-  background: rgba(201,122,138,0.06);
-  padding: 6px 16px;
-  border-radius: 2px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--green2);
+  border: 1px solid rgba(94,234,212,0.25);
+  background: rgba(94,234,212,0.05);
+  padding: 6px 14px;
+  border-radius: 3px;
   margin-bottom: 2rem;
 }
 
 .hero-badge::before {
   content: '';
-  width: 5px; height: 5px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--rose2);
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.4; transform:scale(0.7); }
+  0%,100% { opacity:1; }
+  50% { opacity:0.35; }
 }
 
 h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
-h1 .name {
-  display: block;
-  color: var(--cream);
-}
+h1 .name { display: block; color: var(--cream); }
 
 h1 .title {
   display: block;
-  font-style: italic;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--rose) 50%, var(--gold2) 100%);
+  color: transparent;
+  background: linear-gradient(100deg, var(--green) 0%, var(--blue) 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 600;
 }
 
 .hero-desc {
-  margin-top: 1.8rem;
+  margin-top: 1.6rem;
   font-size: 0.95rem;
-  color: var(--muted);
-  max-width: 460px;
+  color: var(--sand);
+  max-width: 480px;
   font-weight: 300;
   line-height: 1.8;
   animation: fadeUp 0.8s 0.15s ease both;
 }
 
-.hero-desc strong { color: var(--sand); font-weight: 500; }
+.hero-desc strong { color: var(--green2); font-weight: 500; }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 2.4rem;
   flex-wrap: wrap;
   animation: fadeUp 0.8s 0.25s ease both;
 }
@@ -239,49 +200,44 @@ h1 .title {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.85rem 2rem;
-  background: linear-gradient(135deg, var(--gold), var(--terracotta));
-  color: var(--bg);
-  font-family: 'Jost', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  padding: 0.8rem 1.8rem;
+  background: var(--green);
+  color: #06110f;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 3px;
   transition: opacity 0.2s, transform 0.2s;
   border: none;
   cursor: pointer;
 }
-
-.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.85rem 2rem;
+  padding: 0.8rem 1.8rem;
   background: transparent;
   color: var(--sand);
-  font-family: 'Jost', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
   text-decoration: none;
-  border-radius: 2px;
-  border: 1px solid rgba(212,162,100,0.3);
+  border-radius: 3px;
+  border: 1px solid rgba(94,234,212,0.25);
   transition: all 0.2s;
   cursor: pointer;
 }
-
 .btn-secondary:hover {
-  background: rgba(212,162,100,0.08);
-  border-color: var(--gold);
+  background: rgba(94,234,212,0.06);
+  border-color: var(--green);
   transform: translateY(-2px);
 }
 
-/* ── Hero visual (Zellij mandala) ── */
+/* ── Hero visual: network / circuit diagram (signature element) ── */
 .hero-visual {
   display: flex;
   align-items: center;
@@ -289,30 +245,13 @@ h1 .title {
   animation: fadeUp 0.8s 0.1s ease both;
 }
 
-.mandala {
-  width: 380px;
-  height: 380px;
-  position: relative;
-}
+.netviz { width: 420px; height: 420px; }
 
-.mandala svg {
-  width: 100%;
-  height: 100%;
-  animation: rotate 40s linear infinite;
-}
-
-.mandala-inner svg {
-  position: absolute;
-  inset: 15%;
-  width: 70%;
-  height: 70%;
-  animation: rotate 25s linear infinite reverse;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.node { fill: var(--bg2); stroke: var(--green); stroke-width: 1.4; }
+.node.blue { stroke: var(--blue); }
+.node-core { fill: var(--green); }
+.edge { stroke: rgba(94,234,212,0.25); stroke-width: 1; fill: none; }
+.pulse-dot { fill: var(--green2); filter: drop-shadow(0 0 4px var(--green)); }
 
 /* ── SECTIONS ── */
 section {
@@ -325,43 +264,43 @@ section {
 
 .section-header {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3.5rem;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.2rem;
 }
 
 .section-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.18;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--green);
+  opacity: 0.8;
 }
 
 .section-info { flex: 1; }
 
 .section-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--muted);
   margin-bottom: 0.3rem;
 }
 
 h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--cream);
 }
 
 h2 em {
-  font-style: italic;
-  color: var(--gold);
+  font-style: normal;
+  color: var(--green);
 }
 
 /* ── SKILLS ── */
@@ -375,45 +314,44 @@ h2 em {
 
 .skill-card {
   background: var(--bg2);
-  padding: 2rem;
+  padding: 1.8rem;
   transition: background 0.3s;
   position: relative;
-  overflow: hidden;
 }
 
 .skill-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--gold), var(--rose));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  top: 0; left: 0;
+  width: 2px; height: 0;
+  background: var(--green);
+  transition: height 0.35s ease;
 }
 
 .skill-card:hover { background: var(--surface); }
-.skill-card:hover::before { transform: scaleX(1); }
+.skill-card:hover::before { height: 100%; }
 
 .skill-icon {
-  font-size: 1.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--green);
   margin-bottom: 1rem;
   display: block;
+  letter-spacing: 0.05em;
 }
 
 .skill-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--gold2);
+  color: var(--cream);
   margin-bottom: 0.5rem;
-  letter-spacing: 0.03em;
 }
 
 .skill-desc {
   font-size: 0.83rem;
   color: var(--muted);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.1rem;
   line-height: 1.7;
 }
 
@@ -424,54 +362,40 @@ h2 em {
 }
 
 .tag {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding: 3px 10px;
-  border: 1px solid rgba(212,162,100,0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  padding: 3px 9px;
+  border: 1px solid rgba(94,234,212,0.18);
   color: var(--sand);
-  background: rgba(212,162,100,0.05);
-  border-radius: 1px;
+  background: rgba(94,234,212,0.03);
+  border-radius: 2px;
 }
 
 /* ── PROJECTS ── */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 2px;
-  padding: 2rem;
+  border-radius: 3px;
+  padding: 1.8rem;
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   position: relative;
-  overflow: hidden;
-}
-
-.project-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%; height: 2px;
-  background: linear-gradient(to right, var(--gold), var(--rose));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
 }
 
 .project-card:hover {
-  border-color: rgba(212,162,100,0.25);
-  transform: translateY(-4px);
+  border-color: rgba(94,234,212,0.35);
+  transform: translateY(-3px);
   background: var(--surface2);
 }
-
-.project-card:hover::after { transform: scaleX(1); }
 
 .project-header {
   display: flex;
@@ -480,12 +404,10 @@ h2 em {
 }
 
 .project-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--gold);
-  opacity: 0.5;
-  letter-spacing: 0.1em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--green);
+  opacity: 0.7;
 }
 
 .project-link {
@@ -495,15 +417,13 @@ h2 em {
   transition: color 0.2s, transform 0.2s;
   display: inline-block;
 }
-
-.project-link:hover { color: var(--gold); transform: translate(2px, -2px); }
+.project-link:hover { color: var(--green); transform: translate(2px, -2px); }
 
 .project-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--cream);
-  letter-spacing: 0.01em;
   line-height: 1.3;
 }
 
@@ -522,62 +442,47 @@ h2 em {
   border-top: 1px solid var(--border);
 }
 
-.lang-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-}
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+.lang-name { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--muted); }
 
-.lang-name {
-  font-size: 0.78rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-}
-
-/* ── EXPERIENCE & EDUCATION ── */
-.timeline {
-  position: relative;
-  padding-left: 2rem;
-}
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 2rem; }
 
 .timeline::before {
   content: '';
   position: absolute;
   left: 0; top: 8px; bottom: 8px;
   width: 1px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-  opacity: 0.3;
+  background: linear-gradient(to bottom, var(--green), transparent);
+  opacity: 0.4;
 }
 
-.timeline-item {
-  position: relative;
-  padding-bottom: 2.5rem;
-}
+.timeline-item { position: relative; padding-bottom: 2.3rem; }
 
 .timeline-item::before {
   content: '';
   position: absolute;
   left: -2.4rem; top: 6px;
   width: 8px; height: 8px;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
+  border: 1px solid var(--green);
   background: var(--bg);
+  border-radius: 1px;
   transform: rotate(45deg);
-  border-radius: 2px;
 }
 
 .timeline-date {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.7;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  opacity: 0.85;
   margin-bottom: 0.4rem;
 }
 
 .timeline-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--cream);
   margin-bottom: 0.2rem;
@@ -585,46 +490,52 @@ h2 em {
 
 .timeline-org {
   font-size: 0.85rem;
-  color: var(--rose);
+  color: var(--blue2);
   margin-bottom: 0.5rem;
-  font-style: italic;
 }
 
-.timeline-desc {
-  font-size: 0.83rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
+.timeline-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
 
-/* ── TWO COLUMNS ── */
-.two-col {
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+/* ── ORG ── */
+.org-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
+
+.org-card {
+  padding: 1.1rem 1.4rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: all 0.25s;
+  border-radius: 3px;
+}
+.org-card:hover { border-color: rgba(94,234,212,0.3); background: var(--surface2); }
+
+.org-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.2rem;
+}
+.org-role { font-size: 0.78rem; color: var(--blue2); margin-bottom: 0.2rem; }
+.org-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
 
 /* ── CONTACT ── */
-.contact-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  align-items: start;
-}
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
 
 .contact-text h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 400;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 500;
   color: var(--cream);
   line-height: 1.3;
   margin-bottom: 1rem;
 }
-
-.contact-text h3 em {
-  font-style: italic;
-  color: var(--gold);
-}
+.contact-text h3 em { font-style: normal; color: var(--green); }
 
 .contact-text p {
   font-size: 0.88rem;
@@ -633,38 +544,29 @@ h2 em {
   margin-bottom: 1.5rem;
 }
 
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
+.contact-links { display: flex; flex-direction: column; gap: 0.7rem; }
 
 .contact-link {
   display: flex;
   align-items: center;
   gap: 14px;
-  color: var(--muted);
+  color: var(--sand);
   text-decoration: none;
   font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
   padding: 1rem 1.2rem;
   border: 1px solid var(--border);
   background: var(--surface);
+  border-radius: 3px;
   transition: all 0.25s;
 }
-
 .contact-link:hover {
   color: var(--cream);
-  border-color: rgba(212,162,100,0.3);
+  border-color: rgba(94,234,212,0.35);
   background: var(--surface2);
-  padding-left: 1.6rem;
+  padding-left: 1.5rem;
 }
-
-.contact-link .cicon {
-  font-size: 1rem;
-  width: 24px;
-  text-align: center;
-  color: var(--gold);
-}
+.contact-link .cicon { font-size: 1rem; width: 24px; text-align: center; color: var(--green); }
 
 /* ── FOOTER ── */
 footer {
@@ -673,82 +575,25 @@ footer {
   text-align: center;
   padding: 2.5rem 2rem;
   color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
   border-top: 1px solid var(--border);
 }
+footer .footer-name { color: var(--green); }
 
-footer .footer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  color: var(--gold);
-  font-size: 1rem;
-}
-
-/* ── Organisations ── */
-.org-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.org-card {
-  padding: 1.2rem 1.5rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: all 0.25s;
-}
-
-.org-card:hover {
-  border-color: rgba(212,162,100,0.3);
-  background: var(--surface2);
-}
-
-.org-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--gold2);
-  margin-bottom: 0.2rem;
-}
-
-.org-role {
-  font-size: 0.78rem;
-  color: var(--rose);
-  font-style: italic;
-  margin-bottom: 0.2rem;
-}
-
-.org-date {
-  font-size: 0.73rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-}
-
-/* ── Animations ── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+.fade-in:nth-child(4) { transition-delay: 0.24s; }
+.fade-in:nth-child(5) { transition-delay: 0.32s; }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger */
-.fade-in:nth-child(2) { transition-delay: 0.1s; }
-.fade-in:nth-child(3) { transition-delay: 0.2s; }
-.fade-in:nth-child(4) { transition-delay: 0.3s; }
-.fade-in:nth-child(5) { transition-delay: 0.4s; }
-
-/* ── Responsive ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
@@ -762,106 +607,82 @@ footer .footer-name {
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
 <nav>
-  <div class="nav-logo">NL</div>
+  <div class="nav-logo">NL<span>_</span></div>
   <ul class="nav-links">
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#skills">Compétences</a></li>
-    <li><a href="#projects">Projets</a></li>
-    <li><a href="#experience">Parcours</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
 
 <!-- ══ HERO ══ -->
 <div class="hero" id="about">
   <div class="hero-content">
-    <div class="hero-badge">✦ Disponible pour un stage</div>
+    <div class="hero-badge">● disponible pour un stage</div>
     <h1>
       <span class="name">Nihed Lazreg</span>
-      <span class="title">Ingénieure Télécom.</span>
+      <span class="title">Ingénieure Télécom & IA</span>
     </h1>
     <p class="hero-desc">
-À la croisée de l'<strong>ingénierie</strong> et de la <strong>médecine</strong> — je crois que l'IA peut transformer les soins de santé. Passionnée par la <strong>data science</strong>, le traitement d'images médicales et le Deep Learning, je construis des systèmes intelligents capables de <strong>voir ce que l'œil humain manque</strong>.    </p>
+      Étudiante ingénieure à l'<strong>ENIT</strong>, à l'intersection des <strong>télécommunications</strong>, de l'<strong>intelligence artificielle</strong> et des <strong>systèmes embarqués</strong>. Mon PFE portait sur la vérification de signatures manuscrites via un réseau siamois — je construis des systèmes qui repèrent des motifs invisibles à l'œil humain, du modèle jusqu'à l'infrastructure qui le fait tourner.
+    </p>
     <div class="hero-cta">
-      <a href="#projects" class="btn-primary">✦ Découvrir mes projets</a>
+      <a href="#projects" class="btn-primary">→ voir mes projets</a>
       <a href="https://github.com/nihed-lazreg" target="_blank" class="btn-secondary">GitHub ↗</a>
     </div>
   </div>
 
-  <!-- Zellij Mandala SVG -->
+  <!-- Signature element: neural/telecom network diagram -->
   <div class="hero-visual">
-    <div class="mandala">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#d4a264;stop-opacity:0.8"/>
-            <stop offset="50%" style="stop-color:#c97a8a;stop-opacity:0.6"/>
-            <stop offset="100%" style="stop-color:#d4a264;stop-opacity:0.3"/>
-          </linearGradient>
-        </defs>
-        <g fill="none" stroke="url(#g1)" stroke-width="0.8">
-          <!-- Outer ring of diamonds -->
-          <polygon points="200,20 215,50 200,80 185,50" opacity="0.6"/>
-          <polygon points="200,320 215,350 200,380 185,350" opacity="0.6"/>
-          <polygon points="20,200 50,215 80,200 50,185" opacity="0.6"/>
-          <polygon points="320,200 350,215 380,200 350,185" opacity="0.6"/>
-          <polygon points="143,57 162,82 143,107 124,82" opacity="0.5"/>
-          <polygon points="257,57 276,82 257,107 238,82" opacity="0.5"/>
-          <polygon points="143,293 162,318 143,343 124,318" opacity="0.5"/>
-          <polygon points="257,293 276,318 257,343 238,318" opacity="0.5"/>
-          <polygon points="57,143 82,162 107,143 82,124" opacity="0.5"/>
-          <polygon points="293,143 318,162 343,143 318,124" opacity="0.5"/>
-          <polygon points="57,257 82,276 107,257 82,238" opacity="0.5"/>
-          <polygon points="293,257 318,276 343,257 318,238" opacity="0.5"/>
+    <svg class="netviz" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+      <g class="edge">
+        <path d="M70,90 L210,60"/>
+        <path d="M70,90 L210,150"/>
+        <path d="M70,210 L210,150"/>
+        <path d="M70,210 L210,270"/>
+        <path d="M70,330 L210,270"/>
+        <path d="M70,330 L210,360"/>
+        <path d="M210,60 L350,120"/>
+        <path d="M210,60 L350,210"/>
+        <path d="M210,150 L350,120"/>
+        <path d="M210,150 L350,210"/>
+        <path d="M210,270 L350,210"/>
+        <path d="M210,270 L350,320"/>
+        <path d="M210,360 L350,320"/>
+        <path d="M70,90 L70,210"/>
+        <path d="M70,210 L70,330"/>
+      </g>
+      <g class="node">
+        <circle cx="70" cy="90" r="9"/>
+        <circle cx="70" cy="210" r="9"/>
+        <circle cx="70" cy="330" r="9"/>
+      </g>
+      <g class="node blue">
+        <circle cx="210" cy="60" r="9"/>
+        <circle cx="210" cy="150" r="9"/>
+        <circle cx="210" cy="270" r="9"/>
+        <circle cx="210" cy="360" r="9"/>
+      </g>
+      <g class="node">
+        <circle cx="350" cy="120" r="9"/>
+        <circle cx="350" cy="210" r="10" class="node-core-ring"/>
+        <circle cx="350" cy="320" r="9"/>
+      </g>
+      <circle cx="350" cy="210" r="4" class="node-core"/>
 
-          <!-- Concentric circles -->
-          <circle cx="200" cy="200" r="160" stroke-dasharray="4,6" opacity="0.3"/>
-          <circle cx="200" cy="200" r="130" stroke-dasharray="2,9" opacity="0.35"/>
-          <circle cx="200" cy="200" r="100" opacity="0.25"/>
-          <circle cx="200" cy="200" r="70" stroke-dasharray="3,5" opacity="0.4"/>
-          <circle cx="200" cy="200" r="40" opacity="0.3"/>
-
-          <!-- Star of 8 -->
-          <path d="M200,60 L215,130 L200,200 L185,130 Z" opacity="0.5"/>
-          <path d="M200,340 L215,270 L200,200 L185,270 Z" opacity="0.5"/>
-          <path d="M60,200 L130,215 L200,200 L130,185 Z" opacity="0.5"/>
-          <path d="M340,200 L270,215 L200,200 L270,185 Z" opacity="0.5"/>
-          <path d="M91,91 L151,151 L200,200 L151,151 Z" opacity="0.4"/>
-          <path d="M309,91 L249,151 L200,200 L249,151 Z" opacity="0.4"/>
-          <path d="M91,309 L151,249 L200,200 L151,249 Z" opacity="0.4"/>
-          <path d="M309,309 L249,249 L200,200 L249,249 Z" opacity="0.4"/>
-
-          <!-- Inner decorative arcs -->
-          <path d="M200,110 Q240,155 200,200 Q160,155 200,110" opacity="0.6"/>
-          <path d="M200,290 Q240,245 200,200 Q160,245 200,290" opacity="0.6"/>
-          <path d="M110,200 Q155,240 200,200 Q155,160 110,200" opacity="0.6"/>
-          <path d="M290,200 Q245,240 200,200 Q245,160 290,200" opacity="0.6"/>
-
-          <!-- Center star -->
-          <polygon points="200,170 208,192 200,215 192,192" opacity="0.7"/>
-          <polygon points="170,200 192,208 215,200 192,192" opacity="0.7"/>
-          <polygon points="178,178 195,192 212,178 195,164" opacity="0.5"/>
-          <polygon points="178,222 195,208 212,222 195,236" opacity="0.5"/>
-        </g>
-        <!-- Center dot -->
-        <circle cx="200" cy="200" r="5" fill="#d4a264" opacity="0.7"/>
-        <circle cx="200" cy="200" r="10" fill="none" stroke="#d4a264" stroke-width="0.8" opacity="0.5"/>
-      </svg>
-
-      <div class="mandala-inner">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke="rgba(201,122,138,0.5)" stroke-width="1">
-            <circle cx="200" cy="200" r="180" stroke-dasharray="6,10" opacity="0.4"/>
-            <circle cx="200" cy="200" r="140" opacity="0.3"/>
-            <path d="M200,20 L380,200 L200,380 L20,200 Z" opacity="0.25"/>
-            <path d="M200,50 L350,200 L200,350 L50,200 Z" opacity="0.3"/>
-            <path d="M113,113 L287,113 L287,287 L113,287 Z" opacity="0.2"/>
-          </g>
-        </svg>
-      </div>
-    </div>
+      <circle r="3.5" class="pulse-dot">
+        <animateMotion dur="3.2s" repeatCount="indefinite" path="M70,90 L210,150 L350,210"/>
+      </circle>
+      <circle r="3.5" class="pulse-dot">
+        <animateMotion dur="4s" repeatCount="indefinite" begin="0.8s" path="M70,330 L210,270 L350,210"/>
+      </circle>
+      <circle r="3.5" class="pulse-dot">
+        <animateMotion dur="3.6s" repeatCount="indefinite" begin="1.6s" path="M70,210 L210,60 L350,120"/>
+      </circle>
+    </svg>
   </div>
 </div>
 
@@ -877,7 +698,7 @@ footer .footer-name {
 
   <div class="skills-grid">
     <div class="skill-card fade-in">
-      <span class="skill-icon">🤖</span>
+      <span class="skill-icon">// ai_ml</span>
       <div class="skill-title">IA & Machine Learning</div>
       <p class="skill-desc">Systèmes de Deep Learning, NLP, vision par ordinateur et apprentissage par renforcement.</p>
       <div class="skill-tags">
@@ -890,7 +711,7 @@ footer .footer-name {
       </div>
     </div>
     <div class="skill-card fade-in">
-      <span class="skill-icon">⚡</span>
+      <span class="skill-icon">// embedded</span>
       <div class="skill-title">Systèmes Embarqués</div>
       <p class="skill-desc">Programmation bas-niveau, microcontrôleurs et interfaçage de capteurs.</p>
       <div class="skill-tags">
@@ -903,7 +724,7 @@ footer .footer-name {
       </div>
     </div>
     <div class="skill-card fade-in">
-      <span class="skill-icon">🌐</span>
+      <span class="skill-icon">// web</span>
       <div class="skill-title">Développement Web</div>
       <p class="skill-desc">Applications full-stack scalables avec architectures microservices.</p>
       <div class="skill-tags">
@@ -916,7 +737,7 @@ footer .footer-name {
       </div>
     </div>
     <div class="skill-card fade-in">
-      <span class="skill-icon">📊</span>
+      <span class="skill-icon">// data</span>
       <div class="skill-title">Data Science</div>
       <p class="skill-desc">Analyse de données, visualisation et traitement pour des insights actionnables.</p>
       <div class="skill-tags">
@@ -929,7 +750,7 @@ footer .footer-name {
       </div>
     </div>
     <div class="skill-card fade-in">
-      <span class="skill-icon">🔒</span>
+      <span class="skill-icon">// net_sec</span>
       <div class="skill-title">Réseaux & Sécurité</div>
       <p class="skill-desc">Protocoles réseau, cybersécurité et administration systèmes.</p>
       <div class="skill-tags">
@@ -940,7 +761,7 @@ footer .footer-name {
       </div>
     </div>
     <div class="skill-card fade-in">
-      <span class="skill-icon">🗣️</span>
+      <span class="skill-icon">// langues</span>
       <div class="skill-title">Langues</div>
       <p class="skill-desc">Communication technique et professionnelle en plusieurs langues.</p>
       <div class="skill-tags">
@@ -967,7 +788,7 @@ footer .footer-name {
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <span class="project-num">✦ 01</span>
+        <span class="project-num">01</span>
         <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Vérification de Signature par Deep Learning</div>
@@ -979,14 +800,14 @@ footer .footer-name {
         <span class="tag">Deep Learning</span>
       </div>
       <div class="project-footer">
-        <div class="lang-dot" style="background:#3572A5;"></div>
+        <div class="lang-dot" style="background:#5eead4;"></div>
         <span class="lang-name">Python</span>
       </div>
     </div>
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <span class="project-num">✦ 02</span>
+        <span class="project-num">02</span>
         <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Analyseur de Sentiments NLP & BI</div>
@@ -998,14 +819,14 @@ footer .footer-name {
         <span class="tag">Streamlit</span>
       </div>
       <div class="project-footer">
-        <div class="lang-dot" style="background:#3572A5;"></div>
+        <div class="lang-dot" style="background:#5eead4;"></div>
         <span class="lang-name">Python</span>
       </div>
     </div>
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <span class="project-num">✦ 03</span>
+        <span class="project-num">03</span>
         <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Système Embarqué STM32 — Mesure de Température</div>
@@ -1017,18 +838,18 @@ footer .footer-name {
         <span class="tag">Capteurs</span>
       </div>
       <div class="project-footer">
-        <div class="lang-dot" style="background:#555555;"></div>
+        <div class="lang-dot" style="background:#5b8cff;"></div>
         <span class="lang-name">C / Embedded</span>
       </div>
     </div>
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <span class="project-num">✦ 04</span>
+        <span class="project-num">04</span>
         <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Plateforme de Consultation Médicale</div>
-      <p class="project-desc">Platforme  de gestion de rendez-vous et consultations médicales pour professionnels de santé. Architecture microservices Angular + Node.js pour haute disponibilité.</p>
+      <p class="project-desc">Plateforme de gestion de rendez-vous et consultations médicales pour professionnels de santé. Architecture microservices Angular + Node.js pour haute disponibilité.</p>
       <div class="skill-tags">
         <span class="tag">Angular</span>
         <span class="tag">Node.js</span>
@@ -1036,7 +857,7 @@ footer .footer-name {
         <span class="tag">Microservices</span>
       </div>
       <div class="project-footer">
-        <div class="lang-dot" style="background:#dd4b25;"></div>
+        <div class="lang-dot" style="background:#e0b34a;"></div>
         <span class="lang-name">TypeScript / JS</span>
       </div>
     </div>
@@ -1062,7 +883,7 @@ footer .footer-name {
 
   <div class="two-col">
     <div>
-      <div class="section-label" style="margin-bottom:1.5rem; opacity:0.8;">Expérience professionnelle</div>
+      <div class="section-label" style="margin-bottom:1.5rem;">Expérience professionnelle</div>
       <div class="timeline fade-in">
         <div class="timeline-item">
           <div class="timeline-date">Juil. – Août 2025</div>
@@ -1072,7 +893,7 @@ footer .footer-name {
         </div>
       </div>
 
-      <div class="section-label" style="margin-bottom:1.5rem; margin-top:2rem; opacity:0.8;">Certifications & Cours</div>
+      <div class="section-label" style="margin-bottom:1.5rem; margin-top:2rem;">Certifications & Cours</div>
       <div class="timeline fade-in">
         <div class="timeline-item">
           <div class="timeline-date">2026</div>
@@ -1093,7 +914,7 @@ footer .footer-name {
     </div>
 
     <div>
-      <div class="section-label" style="margin-bottom:1.5rem; opacity:0.8;">Formation académique</div>
+      <div class="section-label" style="margin-bottom:1.5rem;">Formation académique</div>
       <div class="timeline fade-in">
         <div class="timeline-item">
           <div class="timeline-date">2024 → Présent</div>
@@ -1166,7 +987,7 @@ footer .footer-name {
       <h3>Ouverte à de nouvelles <em>opportunités</em>.</h3>
       <p>Je suis activement à la recherche d'un stage en ingénierie des télécommunications, IA ou systèmes embarqués. Recruteur ou simplement curieux — je réponds rapidement.</p>
       <a href="mailto:nihed.lazreg@etudiant-enit.utm.tn" class="btn-primary" style="width:fit-content; margin-top:0.5rem;">
-        ✦ M'envoyer un email
+        → m'envoyer un email
       </a>
     </div>
 
@@ -1201,23 +1022,15 @@ footer .footer-name {
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="ornament" style="justify-content:center; margin-bottom:1rem;">
-    <div class="ornament-line" style="max-width:60px;"></div>
-    <span style="color:var(--gold); font-size:0.8rem; letter-spacing:0.3em;">✦ ✦ ✦</span>
-    <div class="ornament-line rev" style="max-width:60px;"></div>
-  </div>
-  Fait avec passion par <span class="footer-name">Nihed Lazreg</span> · 2025 · ENIT Tunis
+  fait avec passion par <span class="footer-name">Nihed Lazreg</span> · 2025 · ENIT Tunis
 </footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.08 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
