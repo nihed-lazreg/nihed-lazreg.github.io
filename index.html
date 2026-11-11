@@ -1,1038 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nihed Lazreg — Ingénieure Télécom & IA</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nihed Lazreg — Ingénieure Télécom &amp; IA</title>
+<meta name="description" content="Ingénieure télécom & IA (ENIT). Vérification de signatures, EEG, 5G, Odoo. Disponible pour un stage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #090c0d;
-  --bg2: #0d1113;
-  --surface: #10161a;
-  --surface2: #151d21;
-  --border: rgba(94,234,212,0.14);
-  --green: #5eead4;
-  --green2: #8ff8e6;
-  --blue: #5b8cff;
-  --blue2: #8fabff;
-  --cream: #eaf1f0;
-  --sand: #a9bcbb;
-  --text: #eaf1f0;
-  --muted: #6c8281;
-  --amber: #e0b34a;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* ── Background grid + glow ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 40% at 12% 0%, rgba(94,234,212,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 50% at 92% 95%, rgba(91,140,255,0.07) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(94,234,212,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94,234,212,0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.1rem 4rem;
-  background: rgba(9,12,13,0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
-  color: var(--green);
-}
-
-.nav-logo span { color: var(--muted); }
-
-.nav-links {
-  display: flex;
-  gap: 2.3rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  transition: color 0.25s;
-  position: relative;
-}
-
-.nav-links a::before {
-  content: '// ';
-  color: var(--green);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.nav-links a:hover { color: var(--cream); }
-.nav-links a:hover::before { opacity: 0.7; }
-
-/* ── HERO ── */
-.hero {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  padding: 8rem 4rem 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 4rem;
-}
-
-.hero-content { animation: fadeUp 0.8s ease both; }
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--green2);
-  border: 1px solid rgba(94,234,212,0.25);
-  background: rgba(94,234,212,0.05);
-  padding: 6px 14px;
-  border-radius: 3px;
-  margin-bottom: 2rem;
-}
-
-.hero-badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 8px var(--green);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%,100% { opacity:1; }
-  50% { opacity:0.35; }
-}
-
-h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-
-h1 .name { display: block; color: var(--cream); }
-
-h1 .title {
-  display: block;
-  color: transparent;
-  background: linear-gradient(100deg, var(--green) 0%, var(--blue) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-weight: 600;
-}
-
-.hero-desc {
-  margin-top: 1.6rem;
-  font-size: 0.95rem;
-  color: var(--sand);
-  max-width: 480px;
-  font-weight: 300;
-  line-height: 1.8;
-  animation: fadeUp 0.8s 0.15s ease both;
-}
-
-.hero-desc strong { color: var(--green2); font-weight: 500; }
-
-.hero-cta {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2.4rem;
-  flex-wrap: wrap;
-  animation: fadeUp 0.8s 0.25s ease both;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.8rem 1.8rem;
-  background: var(--green);
-  color: #06110f;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  border-radius: 3px;
-  transition: opacity 0.2s, transform 0.2s;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.8rem 1.8rem;
-  background: transparent;
-  color: var(--sand);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-decoration: none;
-  border-radius: 3px;
-  border: 1px solid rgba(94,234,212,0.25);
-  transition: all 0.2s;
-  cursor: pointer;
-}
-.btn-secondary:hover {
-  background: rgba(94,234,212,0.06);
-  border-color: var(--green);
-  transform: translateY(-2px);
-}
-
-/* ── Hero visual: network / circuit diagram (signature element) ── */
-.hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeUp 0.8s 0.1s ease both;
-}
-
-.netviz { width: 420px; height: 420px; }
-
-.node { fill: var(--bg2); stroke: var(--green); stroke-width: 1.4; }
-.node.blue { stroke: var(--blue); }
-.node-core { fill: var(--green); }
-.edge { stroke: rgba(94,234,212,0.25); stroke-width: 1; fill: none; }
-.pulse-dot { fill: var(--green2); filter: drop-shadow(0 0 4px var(--green)); }
-
-/* ── SECTIONS ── */
-section {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6rem 4rem;
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1.2rem;
-  margin-bottom: 3.2rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1.2rem;
-}
-
-.section-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  color: var(--green);
-  opacity: 0.8;
-}
-
-.section-info { flex: 1; }
-
-.section-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.3rem;
-}
-
-h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--cream);
-}
-
-h2 em {
-  font-style: normal;
-  color: var(--green);
-}
-
-/* ── SKILLS ── */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.skill-card {
-  background: var(--bg2);
-  padding: 1.8rem;
-  transition: background 0.3s;
-  position: relative;
-}
-
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 2px; height: 0;
-  background: var(--green);
-  transition: height 0.35s ease;
-}
-
-.skill-card:hover { background: var(--surface); }
-.skill-card:hover::before { height: 100%; }
-
-.skill-icon {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--green);
-  margin-bottom: 1rem;
-  display: block;
-  letter-spacing: 0.05em;
-}
-
-.skill-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 0.5rem;
-}
-
-.skill-desc {
-  font-size: 0.83rem;
-  color: var(--muted);
-  margin-bottom: 1.1rem;
-  line-height: 1.7;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 400;
-  padding: 3px 9px;
-  border: 1px solid rgba(94,234,212,0.18);
-  color: var(--sand);
-  background: rgba(94,234,212,0.03);
-  border-radius: 2px;
-}
-
-/* ── PROJECTS ── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 1.2rem;
-}
-
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 1.8rem;
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  position: relative;
-}
-
-.project-card:hover {
-  border-color: rgba(94,234,212,0.35);
-  transform: translateY(-3px);
-  background: var(--surface2);
-}
-
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.project-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--green);
-  opacity: 0.7;
-}
-
-.project-link {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s, transform 0.2s;
-  display: inline-block;
-}
-.project-link:hover { color: var(--green); transform: translate(2px, -2px); }
-
-.project-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--cream);
-  line-height: 1.3;
-}
-
-.project-desc {
-  font-size: 0.84rem;
-  color: var(--muted);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.project-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--border);
-}
-
-.lang-dot { width: 8px; height: 8px; border-radius: 50%; }
-.lang-name { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--muted); }
-
-/* ── TIMELINE ── */
-.timeline { position: relative; padding-left: 2rem; }
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px; bottom: 8px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--green), transparent);
-  opacity: 0.4;
-}
-
-.timeline-item { position: relative; padding-bottom: 2.3rem; }
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -2.4rem; top: 6px;
-  width: 8px; height: 8px;
-  border: 1px solid var(--green);
-  background: var(--bg);
-  border-radius: 1px;
-  transform: rotate(45deg);
-}
-
-.timeline-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--green);
-  opacity: 0.85;
-  margin-bottom: 0.4rem;
-}
-
-.timeline-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 0.2rem;
-}
-
-.timeline-org {
-  font-size: 0.85rem;
-  color: var(--blue2);
-  margin-bottom: 0.5rem;
-}
-
-.timeline-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-
-/* ── ORG ── */
-.org-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.org-card {
-  padding: 1.1rem 1.4rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: all 0.25s;
-  border-radius: 3px;
-}
-.org-card:hover { border-color: rgba(94,234,212,0.3); background: var(--surface2); }
-
-.org-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 0.2rem;
-}
-.org-role { font-size: 0.78rem; color: var(--blue2); margin-bottom: 0.2rem; }
-.org-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-
-/* ── CONTACT ── */
-.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-
-.contact-text h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.9rem;
-  font-weight: 500;
-  color: var(--cream);
-  line-height: 1.3;
-  margin-bottom: 1rem;
-}
-.contact-text h3 em { font-style: normal; color: var(--green); }
-
-.contact-text p {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.contact-links { display: flex; flex-direction: column; gap: 0.7rem; }
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--sand);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-family: 'JetBrains Mono', monospace;
-  padding: 1rem 1.2rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  border-radius: 3px;
-  transition: all 0.25s;
-}
-.contact-link:hover {
-  color: var(--cream);
-  border-color: rgba(94,234,212,0.35);
-  background: var(--surface2);
-  padding-left: 1.5rem;
-}
-.contact-link .cicon { font-size: 1rem; width: 24px; text-align: center; color: var(--green); }
-
-/* ── FOOTER ── */
-footer {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 2.5rem 2rem;
-  color: var(--muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76rem;
-  letter-spacing: 0.02em;
-  border-top: 1px solid var(--border);
-}
-footer .footer-name { color: var(--green); }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-.fade-in:nth-child(2) { transition-delay: 0.08s; }
-.fade-in:nth-child(3) { transition-delay: 0.16s; }
-.fade-in:nth-child(4) { transition-delay: 0.24s; }
-.fade-in:nth-child(5) { transition-delay: 0.32s; }
-
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
-  .hero-visual { display: none; }
-  section { padding: 4rem 1.5rem; }
-  .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
-  .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-}
+:root{--bg:#14124a;--panel:#1d1b63;--line:#35319a;--text:#f2f1ff;--muted:#aeabe3;--pink:#ff5fa2;--mint:#5ff0b5;--cyan:#38d4ff;--lav:#a58bff;--yel:#ffd75e;--r:18px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg) radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/26px 26px;color:var(--text);font:400 1rem/1.65 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.15}
+a{color:inherit}:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:rgba(20,18,74,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:20px;height:60px}
+.logo{font:700 1.1rem "Space Grotesk",sans-serif;text-decoration:none;margin-right:auto;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.95rem}nav a.l:hover{color:var(--text)}
+.btn-s{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:4px 12px;font:inherit;font-size:.85rem;cursor:pointer}.btn-s:hover{border-color:var(--mint)}
+@media(max-width:760px){nav a.l{display:none}}
+#hero{padding:80px 0 60px}
+.hg{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+@media(max-width:900px){.hg{grid-template-columns:1fr}}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:.9rem;color:var(--muted);margin-bottom:24px}
+.badge i{width:9px;height:9px;border-radius:50%;background:var(--mint);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(95,240,181,0);opacity:.6}0%{box-shadow:0 0 0 0 rgba(95,240,181,.6)}}
+h1{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:700;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--pink),var(--lav),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:18px;max-width:44ch;color:var(--muted);font-size:1.12rem}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:500;text-decoration:none;border:1px solid var(--line)}
+.btn.p{background:linear-gradient(90deg,var(--pink),var(--lav));color:#190f3d;border:0}
+.btn:hover{border-color:var(--mint)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.donuts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.donut{position:relative;text-align:center}
+.donut svg{width:100%;display:block}
+.tr{fill:none;stroke:rgba(255,255,255,.1);stroke-width:10}
+.pg{fill:none;stroke:var(--c);stroke-width:10;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.in .pg{stroke-dashoffset:calc(100 - var(--v))}
+.donut b{position:absolute;left:0;right:0;top:34%;font:700 1.15rem "Space Grotesk",sans-serif}
+.donut span{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}
+#wave{width:100%;height:120px;display:block;margin-top:18px}
+section{padding:70px 0}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:30px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.about p{max-width:58ch}
+.stats{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.stat{flex:1;min-width:110px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.stat b{font:700 1.7rem "Space Grotesk",sans-serif;display:block}.stat span{color:var(--muted);font-size:.85rem}
+.venn{width:100%;max-width:400px;margin:0 auto;display:block}
+.venn circle{mix-blend-mode:screen;opacity:.75;transform:scale(0);transform-box:fill-box;transform-origin:center;transition:transform 1s cubic-bezier(.2,.9,.3,1.3)}
+.in .venn circle,.venn.in circle{transform:scale(1)}
+.venn text{fill:#fff;font:700 15px "Space Grotesk",sans-serif;text-anchor:middle}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--c)}
+.card.big{grid-column:span 2;padding:28px}.card.big h3{font-size:1.6rem}
+.card h3{font-size:1.12rem}.card p{color:var(--muted);font-size:.95rem}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.9rem;margin-top:auto}
+.card dt{color:var(--c);font-weight:500}.card dd{color:var(--muted)}
+.metric{align-self:flex-start;background:rgba(255,255,255,.08);color:var(--c);border-radius:8px;padding:3px 10px;font-size:.85rem;font-weight:500}
+.links{display:flex;gap:14px;font-size:.9rem}.links a{color:var(--cyan)}
+svg.mini{width:100%;height:64px}
+.mini .b{fill:var(--c);transform:scaleY(0);transform-box:fill-box;transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.9,.3,1.2) var(--d)}
+.in .mini .b{transform:scaleY(1)}
+.mini .ln{fill:none;stroke:var(--c);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 2s ease}
+.in .mini .ln{stroke-dashoffset:0}
+.mini .tg{fill:var(--c);opacity:0;transition:opacity .8s var(--d)}.in .mini .tg{opacity:.85}
+@media(max-width:860px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.card.big{grid-column:auto}.donuts{grid-template-columns:repeat(2,1fr)}}
+.sk{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media(max-width:820px){.sk{grid-template-columns:1fr}}
+.bar-row{margin-bottom:16px}.bar-row div{display:flex;justify-content:space-between;font-size:.93rem;margin-bottom:5px}
+.bar{height:10px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--c);border-radius:9px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.in .bar i{width:calc(var(--v)*1%)}
+.radar{width:100%;max-width:380px;margin:0 auto;display:block}
+.radar .gr{fill:none;stroke:var(--line)}
+.radar .sh{fill:rgba(165,139,255,.35);stroke:var(--lav);stroke-width:2;transform-origin:150px 150px;transform:scale(0);transition:transform 1.4s cubic-bezier(.2,.9,.3,1.2)}
+.in .radar .sh,.radar.in .sh{transform:scale(1)}
+.radar text{fill:var(--muted);font-size:12px;text-anchor:middle}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin-top:22px}
+.tags li{border:1px solid var(--line);border-radius:99px;padding:2px 12px;font-size:.88rem;color:var(--muted)}
+.tl{list-style:none;padding:0;border-left:2px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 28px 26px}
+.tl li::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px var(--bg),0 0 14px var(--c)}
+.tl time{color:var(--muted);font-size:.9rem}.tl h3{font-size:1.1rem;margin:2px 0 4px}.tl p{color:var(--muted);max-width:60ch}
+#contact{text-align:center}#contact .lead{margin:0 auto 26px}#contact .cta{justify-content:center}
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:.88rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top">Nihed Lazreg</a>
+<a class="l" href="#about" data-fr="À propos" data-en="About">À propos</a>
+<a class="l" href="#projects" data-fr="Projets" data-en="Projects">Projets</a>
+<a class="l" href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a>
+<a class="l" href="#path" data-fr="Parcours" data-en="Path">Parcours</a>
+<a class="l" href="#contact">Contact</a>
+<button class="btn-s" id="lang" aria-label="Changer de langue / Switch language">EN</button>
+</nav></div></header>
 
-<nav>
-  <div class="nav-logo">NL<span>_</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#experience">experience</a></li>
-    <li><a href="#contact">contact</a></li>
-  </ul>
-</nav>
-
-<!-- ══ HERO ══ -->
-<div class="hero" id="about">
-  <div class="hero-content">
-    <div class="hero-badge">● disponible pour un stage</div>
-    <h1>
-      <span class="name">Nihed Lazreg</span>
-      <span class="title">Ingénieure Télécom & IA</span>
-    </h1>
-    <p class="hero-desc">
-      Étudiante ingénieure à l'<strong>ENIT</strong>, à l'intersection des <strong>télécommunications</strong>, de l'<strong>intelligence artificielle</strong> et des <strong>systèmes embarqués</strong>. Mon PFA portait sur la vérification de signatures manuscrites via un réseau siamois — je construis des systèmes qui repèrent des motifs invisibles à l'œil humain, du modèle jusqu'à l'infrastructure qui le fait tourner.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">→ voir mes projets</a>
-      <a href="https://github.com/nihed-lazreg" target="_blank" class="btn-secondary">GitHub ↗</a>
-    </div>
-  </div>
-
-  <!-- Signature element: neural/telecom network diagram -->
-  <div class="hero-visual">
-    <svg class="netviz" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-      <g class="edge">
-        <path d="M70,90 L210,60"/>
-        <path d="M70,90 L210,150"/>
-        <path d="M70,210 L210,150"/>
-        <path d="M70,210 L210,270"/>
-        <path d="M70,330 L210,270"/>
-        <path d="M70,330 L210,360"/>
-        <path d="M210,60 L350,120"/>
-        <path d="M210,60 L350,210"/>
-        <path d="M210,150 L350,120"/>
-        <path d="M210,150 L350,210"/>
-        <path d="M210,270 L350,210"/>
-        <path d="M210,270 L350,320"/>
-        <path d="M210,360 L350,320"/>
-        <path d="M70,90 L70,210"/>
-        <path d="M70,210 L70,330"/>
-      </g>
-      <g class="node">
-        <circle cx="70" cy="90" r="9"/>
-        <circle cx="70" cy="210" r="9"/>
-        <circle cx="70" cy="330" r="9"/>
-      </g>
-      <g class="node blue">
-        <circle cx="210" cy="60" r="9"/>
-        <circle cx="210" cy="150" r="9"/>
-        <circle cx="210" cy="270" r="9"/>
-        <circle cx="210" cy="360" r="9"/>
-      </g>
-      <g class="node">
-        <circle cx="350" cy="120" r="9"/>
-        <circle cx="350" cy="210" r="10" class="node-core-ring"/>
-        <circle cx="350" cy="320" r="9"/>
-      </g>
-      <circle cx="350" cy="210" r="4" class="node-core"/>
-
-      <circle r="3.5" class="pulse-dot">
-        <animateMotion dur="3.2s" repeatCount="indefinite" path="M70,90 L210,150 L350,210"/>
-      </circle>
-      <circle r="3.5" class="pulse-dot">
-        <animateMotion dur="4s" repeatCount="indefinite" begin="0.8s" path="M70,330 L210,270 L350,210"/>
-      </circle>
-      <circle r="3.5" class="pulse-dot">
-        <animateMotion dur="3.6s" repeatCount="indefinite" begin="1.6s" path="M70,210 L210,60 L350,120"/>
-      </circle>
-    </svg>
-  </div>
+<main id="top">
+<section id="hero"><div class="wrap hg">
+<div>
+<p class="badge"><i></i><span data-fr="Disponible pour un stage" data-en="Available for an internship">Disponible pour un stage</span></p>
+<h1 data-fr="Ingénieure <span>Télécom &amp; IA</span>" data-en="<span>Telecom &amp; AI</span> Engineer">Ingénieure <span>Télécom &amp; IA</span></h1>
+<p class="sub" data-fr="Je conçois des systèmes qui repèrent ce que l'œil humain ne voit pas, du modèle jusqu'à l'infrastructure." data-en="I build systems that detect what the human eye can't, from model to infrastructure.">Je conçois des systèmes qui repèrent ce que l'œil humain ne voit pas, du modèle jusqu'à l'infrastructure.</p>
+<div class="cta"><a class="btn p" href="#projects" data-fr="Voir mes projets" data-en="See my projects">Voir mes projets</a><a class="btn" href="CV.pdf" data-fr="Télécharger mon CV" data-en="Download my CV">Télécharger mon CV</a></div>
 </div>
+<div class="panel reveal">
+<div class="donuts">
+<div class="donut" data-v="80" style="--c:var(--pink)"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="40"/><circle class="pg" cx="50" cy="50" r="40" pathLength="100"/></svg><b>0%</b><span>IA</span></div>
+<div class="donut" data-v="85" style="--c:var(--cyan)"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="40"/><circle class="pg" cx="50" cy="50" r="40" pathLength="100"/></svg><b>0%</b><span data-fr="Télécom" data-en="Telecom">Télécom</span></div>
+<div class="donut" data-v="75" style="--c:var(--mint)"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="40"/><circle class="pg" cx="50" cy="50" r="40" pathLength="100"/></svg><b>0%</b><span>Odoo</span></div>
+<div class="donut" data-v="60" style="--c:var(--yel)"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="40"/><circle class="pg" cx="50" cy="50" r="40" pathLength="100"/></svg><b>0%</b><span data-fr="Embarqué" data-en="Embedded">Embarqué</span></div>
+</div>
+<canvas id="wave" aria-label="Signal propre devenant un tracé EEG" role="img"></canvas>
+</div></div></section>
 
-<!-- ══ SKILLS ══ -->
-<section id="skills">
-  <div class="section-header fade-in">
-    <span class="section-num">01</span>
-    <div class="section-info">
-      <div class="section-label">Savoir-faire</div>
-      <h2>Compétences <em>techniques</em></h2>
-    </div>
-  </div>
+<section id="about"><div class="wrap about">
+<div><h2 data-fr="À propos" data-en="About">À propos</h2>
+<p data-fr="Étudiante ingénieure à l'ENIT (spécialité Data Science, M2 IST), je conçois des systèmes qui détectent des motifs invisibles : signatures falsifiées, signaux EEG, qualité d'un réseau 5G. À l'intersection des télécoms, de l'IA et des systèmes embarqués, je vais du modèle jusqu'à l'infrastructure qui le fait tourner. Stagiaire développeuse Odoo chez VEGANET, je cherche un stage où l'IA rencontre des problèmes réels." data-en="Engineering student at ENIT (Data Science track, M2 IST), I build systems that detect hidden patterns: forged signatures, EEG signals, 5G network quality. At the crossroads of telecom, AI and embedded systems, I go from the model to the infrastructure that runs it. Odoo developer intern at VEGANET, I'm looking for an internship where AI meets real problems.">Étudiante ingénieure à l'ENIT (spécialité Data Science, M2 IST), je conçois des systèmes qui détectent des motifs invisibles : signatures falsifiées, signaux EEG, qualité d'un réseau 5G. À l'intersection des télécoms, de l'IA et des systèmes embarqués, je vais du modèle jusqu'à l'infrastructure qui le fait tourner. Stagiaire développeuse Odoo chez VEGANET, je cherche un stage où l'IA rencontre des problèmes réels.</p>
+<div class="stats">
+<div class="stat"><b>[X]</b><span data-fr="projets IA & télécom" data-en="AI & telecom projects">projets IA & télécom</span></div>
+<div class="stat"><b>[X]</b><span>certifications</span></div>
+<div class="stat"><b>[X]</b><span data-fr="mois Odoo" data-en="months of Odoo">mois Odoo</span></div></div></div>
+<svg class="venn reveal" viewBox="0 0 300 280" role="img" aria-label="Télécom, IA et Odoo">
+<circle cx="115" cy="110" r="78" fill="#ff5fa2"/><circle cx="185" cy="110" r="78" fill="#38d4ff"/><circle cx="150" cy="170" r="78" fill="#5ff0b5"/>
+<text x="85" y="95" data-fr="Télécom" data-en="Telecom">Télécom</text><text x="215" y="95">IA</text><text x="150" y="215">Odoo</text></svg>
+</div></section>
 
-  <div class="skills-grid">
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// ai_ml</span>
-      <div class="skill-title">IA & Machine Learning</div>
-      <p class="skill-desc">Systèmes de Deep Learning, NLP, vision par ordinateur et apprentissage par renforcement.</p>
-      <div class="skill-tags">
-        <span class="tag">TensorFlow / Keras</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">ResNet50</span>
-        <span class="tag">LLMs</span>
-        <span class="tag">NLP</span>
-      </div>
-    </div>
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// embedded</span>
-      <div class="skill-title">Systèmes Embarqués</div>
-      <p class="skill-desc">Programmation bas-niveau, microcontrôleurs et interfaçage de capteurs.</p>
-      <div class="skill-tags">
-        <span class="tag">STM32</span>
-        <span class="tag">BeagleBone</span>
-        <span class="tag">C / C++</span>
-        <span class="tag">Embedded Linux</span>
-        <span class="tag">GDB</span>
-        <span class="tag">Bash</span>
-      </div>
-    </div>
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// web</span>
-      <div class="skill-title">Développement Web</div>
-      <p class="skill-desc">Applications full-stack scalables avec architectures microservices.</p>
-      <div class="skill-tags">
-        <span class="tag">Angular</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">REST APIs</span>
-        <span class="tag">Microservices</span>
-      </div>
-    </div>
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// data</span>
-      <div class="skill-title">Data Science</div>
-      <p class="skill-desc">Analyse de données, visualisation et traitement pour des insights actionnables.</p>
-      <div class="skill-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Streamlit</span>
-        <span class="tag">AWS</span>
-      </div>
-    </div>
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// net_sec</span>
-      <div class="skill-title">Réseaux & Sécurité</div>
-      <p class="skill-desc">Protocoles réseau, cybersécurité et administration systèmes.</p>
-      <div class="skill-tags">
-        <span class="tag">TCP/IP</span>
-        <span class="tag">CCNA</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Git</span>
-      </div>
-    </div>
-    <div class="skill-card fade-in">
-      <span class="skill-icon">// langues</span>
-      <div class="skill-title">Langues</div>
-      <p class="skill-desc">Communication technique et professionnelle en plusieurs langues.</p>
-      <div class="skill-tags">
-        <span class="tag">Arabe — Natif</span>
-        <span class="tag">Français — B2 DELF</span>
-        <span class="tag">Anglais — Fluent</span>
-        <span class="tag">Espagnol — A2</span>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="projects"><div class="wrap">
+<h2 data-fr="Projets" data-en="Projects">Projets</h2>
+<p class="lead" data-fr="Chaque projet suit le même fil : le problème, mon approche, la stack, le résultat." data-en="Each project follows the same thread: the problem, my approach, the stack, the result.">Chaque projet suit le même fil : le problème, mon approche, la stack, le résultat.</p>
+<div class="grid">
 
-<!-- ══ PROJECTS ══ -->
-<section id="projects">
-  <div class="section-header fade-in">
-    <span class="section-num">02</span>
-    <div class="section-info">
-      <div class="section-label">Réalisations</div>
-      <h2>Projets <em>sélectionnés</em></h2>
-    </div>
-  </div>
+<article class="card big reveal" style="--c:var(--pink)"><svg class="mini" data-t="bars" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">[FAR / FRR / EER]</span>
+<h3 data-fr="Vérification de signatures manuscrites (PFE)" data-en="Handwritten signature verification (final project)">Vérification de signatures manuscrites (PFE)</h3>
+<p data-fr="Authentifier une signature hors-ligne avec très peu d'exemples par personne." data-en="Authenticate an offline signature with very few samples per person.">Authentifier une signature hors-ligne avec très peu d'exemples par personne.</p>
+<dl><dt data-fr="Approche" data-en="Approach">Approche</dt><dd data-fr="Réseau siamois ResNet50 avec Triplet Loss, apprentissage few-shot" data-en="ResNet50 Siamese network with Triplet Loss, few-shot learning">Réseau siamois ResNet50 avec Triplet Loss, apprentissage few-shot</dd>
+<dt>Stack</dt><dd>Python, PyTorch, CEDAR</dd><dt data-fr="Résultat" data-en="Result">Résultat</dt><dd>[à compléter]</dd></dl>
+<div class="links"><a href="https://github.com/nihed-lazreg">GitHub</a></div></article>
 
-  <div class="projects-grid">
+<article class="card reveal" style="--c:var(--cyan)"><svg class="mini" data-t="line" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">[sensibilité]</span>
+<h3 data-fr="Prédiction de crises d'épilepsie (EEG)" data-en="Epileptic seizure prediction (EEG)">Prédiction de crises d'épilepsie (EEG)</h3>
+<p data-fr="Anticiper une crise avant son début à partir de signaux EEG." data-en="Anticipate a seizure before onset from EEG signals.">Anticiper une crise avant son début à partir de signaux EEG.</p>
+<dl><dt data-fr="Approche" data-en="Approach">Approche</dt><dd data-fr="STFT + CNN, puis LSTM/GNN" data-en="STFT + CNN, then LSTM/GNN">STFT + CNN, puis LSTM/GNN</dd><dt>Stack</dt><dd>Python, CHB-MIT</dd></dl>
+<div class="links"><a href="https://github.com/nihed-lazreg">GitHub</a></div></article>
 
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">01</span>
-        <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
-      </div>
-      <div class="project-title">Vérification de Signature par Deep Learning</div>
-      <p class="project-desc">Architecture ResNet50 + Réseaux Siamois pour la vérification de signatures hors-ligne. Système d'authentification et de reconnaissance de patterns pour sécuriser les transactions bancaires.</p>
-      <div class="skill-tags">
-        <span class="tag">ResNet50</span>
-        <span class="tag">Siamese Networks</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">Deep Learning</span>
-      </div>
-      <div class="project-footer">
-        <div class="lang-dot" style="background:#5eead4;"></div>
-        <span class="lang-name">Python</span>
-      </div>
-    </div>
+<article class="card reveal" style="--c:var(--mint)"><svg class="mini" data-t="tri" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">[gain KPI]</span>
+<h3 data-fr="Optimisation radio 5G par IA" data-en="AI-driven 5G radio optimization">Optimisation radio 5G par IA</h3>
+<p data-fr="Identifier les paramètres qui dégradent la qualité de service." data-en="Identify the parameters that degrade quality of service.">Identifier les paramètres qui dégradent la qualité de service.</p>
+<dl><dt data-fr="Approche" data-en="Approach">Approche</dt><dd data-fr="Analyse KPI/QoS et modèles ML" data-en="KPI/QoS analysis and ML models">Analyse KPI/QoS et modèles ML</dd><dt>Stack</dt><dd>Python, OFDM, MIMO</dd></dl>
+<div class="links"><a href="https://github.com/nihed-lazreg">GitHub</a></div></article>
 
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">02</span>
-        <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
-      </div>
-      <div class="project-title">Analyseur de Sentiments NLP & BI</div>
-      <p class="project-desc">Outil d'analyse de sentiments pour le service client. Traitement du langage naturel combiné à la Business Intelligence pour extraire des insights à partir des retours clients.</p>
-      <div class="skill-tags">
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Streamlit</span>
-      </div>
-      <div class="project-footer">
-        <div class="lang-dot" style="background:#5eead4;"></div>
-        <span class="lang-name">Python</span>
-      </div>
-    </div>
+<article class="card reveal" style="--c:var(--lav)"><svg class="mini" data-t="bars" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">Odoo 18</span>
+<h3>moodboard_crm</h3>
+<p data-fr="Capturer le besoin client sur un canvas directement dans le CRM." data-en="Capture client needs on a canvas right inside the CRM.">Capturer le besoin client sur un canvas directement dans le CRM.</p>
+<dl><dt>Stack</dt><dd>Python, OWL, Fabric.js, PostgreSQL</dd><dt data-fr="Contexte" data-en="Context">Contexte</dt><dd data-fr="Réalisé chez VEGANET (client anonymisé)" data-en="Built at VEGANET (client anonymized)">Réalisé chez VEGANET (client anonymisé)</dd></dl></article>
 
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">03</span>
-        <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
-      </div>
-      <div class="project-title">Système Embarqué STM32 — Mesure de Température</div>
-      <p class="project-desc">Système embarqué sur microcontrôleur STM32 simulant la mesure de température à haute précision via potentiomètre et interfaçage de capteurs.</p>
-      <div class="skill-tags">
-        <span class="tag">STM32</span>
-        <span class="tag">C</span>
-        <span class="tag">Embedded Linux</span>
-        <span class="tag">Capteurs</span>
-      </div>
-      <div class="project-footer">
-        <div class="lang-dot" style="background:#5b8cff;"></div>
-        <span class="lang-name">C / Embedded</span>
-      </div>
-    </div>
+<article class="card reveal" style="--c:var(--yel)"><svg class="mini" data-t="line" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">Odoo 18</span>
+<h3>crm_offer_management_custom</h3>
+<p data-fr="Gérer les offres d'une opportunité : validité, verrouillage, sélection." data-en="Manage an opportunity's offers: validity, locking, selection.">Gérer les offres d'une opportunité : validité, verrouillage, sélection.</p>
+<dl><dt>Stack</dt><dd>Python, XML, QWeb</dd><dt data-fr="Contexte" data-en="Context">Contexte</dt><dd data-fr="Réalisé chez VEGANET" data-en="Built at VEGANET">Réalisé chez VEGANET</dd></dl></article>
 
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">04</span>
-        <a href="https://github.com/nihed-lazreg" target="_blank" class="project-link">↗</a>
-      </div>
-      <div class="project-title">Plateforme de Consultation Médicale</div>
-      <p class="project-desc">Plateforme de gestion de rendez-vous et consultations médicales pour professionnels de santé. Architecture microservices Angular + Node.js pour haute disponibilité.</p>
-      <div class="skill-tags">
-        <span class="tag">Angular</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">Microservices</span>
-      </div>
-      <div class="project-footer">
-        <div class="lang-dot" style="background:#e0b34a;"></div>
-        <span class="lang-name">TypeScript / JS</span>
-      </div>
-    </div>
+<article class="card reveal" style="--c:var(--pink)"><svg class="mini" data-t="tri" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"></svg><span class="metric">[démo]</span>
+<h3>OptiPath Pro</h3>
+<p data-fr="Calculer un bilan de liaison fibre optique, avec simulateur HTML." data-en="Compute an optical fiber link budget, with an HTML simulator.">Calculer un bilan de liaison fibre optique, avec simulateur HTML.</p>
+<dl><dt>Stack</dt><dd>Python, Tkinter, HTML/JS</dd></dl>
+<div class="links"><a href="https://github.com/nihed-lazreg">GitHub</a></div></article>
+</div></div></section>
 
-  </div>
+<section id="skills"><div class="wrap">
+<h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
+<div class="sk" style="margin-top:26px">
+<div class="reveal">
+<div class="bar-row"><div><span>Python / PyTorch / TensorFlow</span></div><div class="bar" style="--v:85;--c:var(--pink)"><i></i></div></div>
+<div class="bar-row"><div><span>Deep Learning &amp; signal</span></div><div class="bar" style="--v:80;--c:var(--lav)"><i></i></div></div>
+<div class="bar-row"><div><span>Odoo 18 / OWL / QWeb</span></div><div class="bar" style="--v:75;--c:var(--mint)"><i></i></div></div>
+<div class="bar-row"><div><span>5G / LTE / OFDM / MIMO</span></div><div class="bar" style="--v:80;--c:var(--cyan)"><i></i></div></div>
+<div class="bar-row"><div><span>C / C++ / Linux embarqué</span></div><div class="bar" style="--v:65;--c:var(--yel)"><i></i></div></div>
+</div>
+<svg class="radar reveal" id="radar" viewBox="0 0 300 300" role="img" aria-label="Radar de compétences"></svg>
+</div>
+<ul class="tags"><li>CCNA</li><li>AWS</li><li data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</li><li>IBM Data Science</li><li>Kaggle ML</li><li>Agentic AI</li><li>Claude Code</li><li>Prompt Engineering</li><li>Docker</li><li>PostgreSQL</li><li>MATLAB</li><li>Power BI</li></ul>
+</div></section>
 
-  <div style="text-align:center; margin-top: 3rem;">
-    <a href="https://github.com/nihed-lazreg" target="_blank" class="btn-secondary">
-      Voir tous les projets sur GitHub ↗
-    </a>
-  </div>
-</section>
+<section id="path"><div class="wrap">
+<h2 data-fr="Parcours" data-en="Path">Parcours</h2>
+<ol class="tl" style="margin-top:26px">
+<li style="--c:var(--mint)"><time>[dates]</time><h3 data-fr="Stagiaire développeuse Odoo, VEGANET" data-en="Odoo developer intern, VEGANET">Stagiaire développeuse Odoo, VEGANET</h3><p data-fr="Développement de modules Odoo 18 sur mesure pour le CRM." data-en="Custom Odoo 18 module development for the CRM.">Développement de modules Odoo 18 sur mesure pour le CRM.</p></li>
+<li style="--c:var(--pink)"><time>[dates]</time><h3 data-fr="Master M2 IST" data-en="M2 IST Master's degree">Master M2 IST</h3><p>[établissement]</p></li>
+<li style="--c:var(--cyan)"><time>[dates]</time><h3 data-fr="Cycle ingénieur Télécom, ENIT" data-en="Telecom engineering degree, ENIT">Cycle ingénieur Télécom, ENIT</h3><p data-fr="Spécialité Data Science. Télécoms, IA et systèmes embarqués." data-en="Data Science track. Telecom, AI and embedded systems.">Spécialité Data Science. Télécoms, IA et systèmes embarqués.</p></li>
+</ol></div></section>
 
-<!-- ══ EXPERIENCE & EDUCATION ══ -->
-<section id="experience">
-  <div class="section-header fade-in">
-    <span class="section-num">03</span>
-    <div class="section-info">
-      <div class="section-label">Parcours</div>
-      <h2>Expérience & <em>Formation</em></h2>
-    </div>
-  </div>
-
-  <div class="two-col">
-    <div>
-      <div class="section-label" style="margin-bottom:1.5rem;">Expérience professionnelle</div>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <div class="timeline-date">Juil. – Août 2025</div>
-          <div class="timeline-title">Stagiaire Ingénierie</div>
-          <div class="timeline-org">TIC Inspections & Contrôle — Kram, Tunis</div>
-          <p class="timeline-desc">Stage en ingénierie des TIC au sein d'une société spécialisée en inspection et contrôle technologique.</p>
-        </div>
-      </div>
-
-      <div class="section-label" style="margin-bottom:1.5rem; margin-top:2rem;">Certifications & Cours</div>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <div class="timeline-date">2026</div>
-          <div class="timeline-title">Introduction à la Cybersécurité</div>
-          <div class="timeline-org">Hackviser — En ligne</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2024 – 2026</div>
-          <div class="timeline-title">CCNA — Introduction to Networks</div>
-          <div class="timeline-org">CCNA Courses — En ligne</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2024 – 2025</div>
-          <div class="timeline-title">Introduction to AWS</div>
-          <div class="timeline-org">DataCamp — En ligne</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-label" style="margin-bottom:1.5rem;">Formation académique</div>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <div class="timeline-date">2024 → Présent</div>
-          <div class="timeline-title">Ingénieure en Télécommunications</div>
-          <div class="timeline-org">École Nationale d'Ingénieurs de Tunis (ENIT)</div>
-          <p class="timeline-desc">Spécialisation en systèmes embarqués, IA et réseaux.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2022 – 2024</div>
-          <div class="timeline-title">Classes Préparatoires Physique-Chimie</div>
-          <div class="timeline-org">Institut Préparatoire aux Études d'Ingénieurs de Monastir (IPEIM)</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2018 – 2022</div>
-          <div class="timeline-title">Baccalauréat Sciences Expérimentales</div>
-          <div class="timeline-org">Lycée Menzel Ennour, Monastir</div>
-          <p class="timeline-desc">Mention Très Bien — Major de promotion.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ ORGANISATIONS ══ -->
-<section>
-  <div class="section-header fade-in">
-    <span class="section-num">04</span>
-    <div class="section-info">
-      <div class="section-label">Engagement</div>
-      <h2>Organisations <em>& clubs</em></h2>
-    </div>
-  </div>
-
-  <div class="org-grid">
-    <div class="org-card fade-in">
-      <div class="org-name">JCI Manzel Ennour</div>
-      <div class="org-role">Secrétaire Générale</div>
-      <div class="org-date">09/2025 – 2026 · Monastir</div>
-    </div>
-    <div class="org-card fade-in">
-      <div class="org-name">SOS Ambassadors Club SUPCOM</div>
-      <div class="org-role">Membre Actif</div>
-      <div class="org-date">2024 – 2026 · Tunis</div>
-    </div>
-    <div class="org-card fade-in">
-      <div class="org-name">IEEE ENIT SB</div>
-      <div class="org-role">Membre</div>
-      <div class="org-date">2024 – 2025 · Tunis</div>
-    </div>
-    <div class="org-card fade-in">
-      <div class="org-name">G2FOOS Club</div>
-      <div class="org-role">Membre Actif</div>
-      <div class="org-date">2024 – 2025 · Tunis</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONTACT ══ -->
-<section id="contact">
-  <div class="section-header fade-in">
-    <span class="section-num">05</span>
-    <div class="section-info">
-      <div class="section-label">Discutons</div>
-      <h2>Prendre <em>contact</em></h2>
-    </div>
-  </div>
-
-  <div class="contact-wrap fade-in">
-    <div class="contact-text">
-      <h3>Ouverte à de nouvelles <em>opportunités</em>.</h3>
-      <p>Je suis activement à la recherche d'un stage en ingénierie des télécommunications, IA ou systèmes embarqués. Recruteur ou simplement curieux — je réponds rapidement.</p>
-      <a href="mailto:nihed.lazreg@etudiant-enit.utm.tn" class="btn-primary" style="width:fit-content; margin-top:0.5rem;">
-        → m'envoyer un email
-      </a>
-    </div>
-
-    <div class="contact-links">
-      <a href="mailto:nihed.lazreg@etudiant-enit.utm.tn" class="contact-link">
-        <span class="cicon">✉</span>
-        nihed.lazreg@etudiant-enit.utm.tn
-      </a>
-      <a href="https://github.com/nihed-lazreg" target="_blank" class="contact-link">
-        <span class="cicon">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </span>
-        github.com/nihed-lazreg
-      </a>
-      <a href="https://linkedin.com/in/nihed-lazreg-70228a262" target="_blank" class="contact-link">
-        <span class="cicon">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.57V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-        </span>
-        linkedin.com/in/nihed-lazreg
-      </a>
-      <div class="contact-link" style="cursor:default;">
-        <span class="cicon">📞</span>
-        +216 25 439 446
-      </div>
-      <div class="contact-link" style="cursor:default;">
-        <span class="cicon">📍</span>
-        Tunis, Tunisie — ENIT
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  fait avec passion par <span class="footer-name">Nihed Lazreg</span> · 2025 · ENIT Tunis
-</footer>
+<section id="contact"><div class="wrap">
+<h2 data-fr="Parlons de votre prochain projet" data-en="Let's talk about your next project">Parlons de votre prochain projet</h2>
+<p class="lead" data-fr="Je cherche un stage où l'IA, les télécoms ou Odoo répondent à un vrai besoin." data-en="I'm looking for an internship where AI, telecom or Odoo solve a real need.">Je cherche un stage où l'IA, les télécoms ou Odoo répondent à un vrai besoin.</p>
+<div class="cta"><a class="btn p" href="mailto:ton.email@exemple.com">Email</a><a class="btn" href="https://www.linkedin.com/in/TON-PROFIL">LinkedIn</a><a class="btn" href="https://github.com/nihed-lazreg">GitHub</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Nihed Lazreg</div></footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+(function(){
+/* Valeurs d'illustration : à ajuster dans les data-v (jauges), --v (barres) et RADAR ci-dessous */
+var RADAR=[["IA",80],["Télécom",85],["Odoo/Web",75],["Embarqué",60],["Data",78]];
+var root=document.documentElement,lang="fr",NS="http://www.w3.org/2000/svg";
+document.getElementById("yr").textContent=new Date().getFullYear();
+var bl=document.getElementById("lang");
+bl.onclick=function(){lang=lang==="fr"?"en":"fr";root.lang=lang;bl.textContent=lang==="fr"?"EN":"FR";
+ document.querySelectorAll("[data-fr]").forEach(function(e){e.innerHTML=e.getAttribute("data-"+lang)});
+ try{localStorage.setItem("lang",lang)}catch(e){}};
+try{if(localStorage.getItem("lang")==="en")bl.click()}catch(e){}
+/* Mini graphiques décoratifs */
+var H=[30,52,38,70,48,86,60];
+document.querySelectorAll("svg.mini").forEach(function(s){var t=s.dataset.t,h="";
+ if(t==="bars")H.forEach(function(v,i){h+='<rect class="b" x="'+(i*17+2)+'" y="'+(60-v*.68)+'" width="11" height="'+v*.68+'" rx="2" style="--d:'+i*.1+'s"/>'});
+ if(t==="line")h='<polyline class="ln" pathLength="100" points="2,48 18,40 32,44 48,22 62,30 78,12 94,26 118,8"/>';
+ if(t==="tri")[[8,30],[48,46],[88,22]].forEach(function(p,i){h+='<polygon class="tg" points="'+p[0]+',58 '+(p[0]+16)+','+(58-p[1])+' '+(p[0]+32)+',58" style="--d:'+i*.25+'s"/>'});
+ s.innerHTML=h});
+/* Radar */
+(function(){var r=document.getElementById("radar"),n=RADAR.length,c=150,R=100,h="";
+ function pt(i,k){var a=-Math.PI/2+i*2*Math.PI/n;return[(c+Math.cos(a)*R*k).toFixed(1),(c+Math.sin(a)*R*k).toFixed(1)]}
+ [.25,.5,.75,1].forEach(function(k){h+='<polygon class="gr" points="'+RADAR.map(function(_,i){return pt(i,k)}).join(" ")+'"/>'});
+ RADAR.forEach(function(d,i){var l=pt(i,1.22);h+='<text x="'+l[0]+'" y="'+(+l[1]+4)+'">'+d[0]+'</text>'});
+ h+='<polygon class="sh" points="'+RADAR.map(function(d,i){return pt(i,d[1]/100)}).join(" ")+'"/>';
+ r.innerHTML=h})();
+/* Apparition au défilement + compteurs des jauges */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;el.classList.add("in");io.unobserve(el);
+ el.querySelectorAll(".donut").forEach(function(d){var v=+d.dataset.v,b=d.querySelector("b"),t0=performance.now();
+  (function f(t){var k=Math.min((t-t0)/1800,1);b.textContent=Math.round(v*(1-Math.pow(1-k,3)))+"%";if(k<1)requestAnimationFrame(f)})(t0)})})},{threshold:.25});
+document.querySelectorAll(".donut").forEach(function(d){d.style.setProperty("--v",d.dataset.v)});
+document.querySelectorAll(".reveal").forEach(function(e){io.observe(e)});
+/* Onde : signal propre qui devient un tracé EEG */
+var cv=document.getElementById("wave"),x=cv.getContext("2d"),t=0,W,Hh;
+function size(){var d=devicePixelRatio||1;W=cv.clientWidth;Hh=cv.clientHeight;cv.width=W*d;cv.height=Hh*d;x.setTransform(d,0,0,d,0,0)}
+function nz(a,s){return Math.sin(a*.9+s*3.1)*Math.sin(a*2.3-s*1.7)+.6*Math.sin(a*5.1+s*2.2)}
+function draw(s){x.clearRect(0,0,W,Hh);var g=x.createLinearGradient(0,0,W,0);g.addColorStop(0,"#ff5fa2");g.addColorStop(.5,"#a58bff");g.addColorStop(1,"#38d4ff");
+ x.strokeStyle=g;x.lineWidth=2.5;x.beginPath();
+ for(var i=0;i<=W;i+=2){var p=i/W,m=Math.min(Math.max((p-.3)/.4,0),1);m=m*m*(3-2*m);
+  var y=Hh/2+(Math.sin(p*30-s*2)*(1-m)*.55+(nz(p*26,s)*.35+Math.exp(-Math.pow((p-.86)*14,2))*Math.sin(p*140-s*9)*1.5)*m)*(Hh*.32);
+  i?x.lineTo(i,y):x.moveTo(i,y)}x.stroke()}
+size();addEventListener("resize",function(){size();draw(t)});
+if(matchMedia("(prefers-reduced-motion:reduce)").matches)draw(0);else(function l(){t+=.012;draw(t);requestAnimationFrame(l)})();
+})();
 </script>
-
 </body>
 </html>
